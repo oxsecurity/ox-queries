@@ -1,0 +1,18 @@
+query FetchInventory($getDashboardInput: FetchDashboardInput) {
+  getInventoryResult(getInventoryInput: $getDashboardInput) {
+    inventory {
+      name
+      label
+      count
+      delta
+      trend
+      tooltip {
+        appId
+        appName
+        businessPriority
+      }
+    }
+    totalApps
+    notRelevantApps
+  }
+}

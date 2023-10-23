@@ -1,0 +1,71 @@
+query GetApplications($getApplicationsInput: GetApplicationsInput) {
+  getApplications(getApplicationsInput: $getApplicationsInput) {
+    applications {
+      appId
+      appName
+      risk
+      type
+      userCount
+      codeChanges
+      fakeApp
+      lastCodeChange
+      securityPosture
+      businessPriority
+      isSbomPresent
+      isMonoRepoChild
+      monoRepoParent
+      overridePriority
+      issuesBySeverity {
+        appox
+        critical
+        high
+        medium
+        low
+        info
+      }
+      categories {
+        categoryName
+        categoryId
+        catId
+        severities {
+          info
+          low
+          medium
+          high
+          critical
+          appox
+        }
+        severityScore
+        score
+        total
+        isNa
+        reason
+      }
+      appOwners {
+        name
+        email
+        roles
+      }
+      pipeline {
+        jobId
+        jobTriggeredAt
+        scanResult
+        issuesCount
+        jobTriggeredBy
+        jobUrl
+      }
+      tags {
+        tagId
+        name
+        displayName
+        tagType
+        createdBy
+        isOxTag
+      }
+    }
+    offset
+    total
+    totalFilteredApps
+    totalIrrelevantApps
+  }
+}

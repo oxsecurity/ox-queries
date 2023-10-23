@@ -1,0 +1,173 @@
+query GetSingleApplicationInfo($getSingleApplicationInput: SingleApplicationInput) {
+  getSingleApplicationInfo(getSingleApplicationInput: $getSingleApplicationInput) {
+    appId
+    issues
+    appName
+    branch
+    branchesCount
+    businessPriority
+    codeChanges
+    fakeApp
+    link
+    commitCount
+    createdAt
+    creator
+    daysSinceLastCodeChange
+    daysSinceRepoCreation
+    deployedProd
+    filesCount
+    forksCount
+    hasDownloads
+    pipelineScans
+    irrelevantReasons
+    isMonoRepoChild
+    monoRepoParent
+    monorepoChildrenCount
+    sbomCount
+    monorepoChildrenAppIds
+    languages {
+      language
+      languagePercentage
+    }
+    lastCodeChange
+    new
+    overrideRelevance
+    overridePriority
+    publicVisibility
+    pullCount
+    pushCount
+    relevant
+    risk
+    scanId
+    scannedAt
+    secInfrastructure {
+      label
+      clientCoverage
+      oxCoverage
+      noCoverage
+      notApplicable
+    }
+    securityPosture
+    size
+    tagsCount
+    type
+    updated
+    userCount
+    version
+    violationCount
+    watchersCount
+    yamlsCount
+    scoreHistory {
+      appId
+      appName
+      score
+      date
+      new
+      updated
+      scanId
+    }
+    applicationFlows {
+      artifacts {
+        type
+        system
+        subType
+        hash
+        size
+        date
+        name
+        linkName
+        location {
+          runBy
+          foundBy
+          foundIn
+          link
+        }
+      }
+      cloudDeployments {
+        type
+        subType
+        name
+        hash
+        hashType
+        location {
+          runBy
+          foundBy
+          foundIn
+          link
+        }
+      }
+      cicdInfo {
+        type
+        system
+        latestDate
+        lastMonthJobCount
+        location {
+          runBy
+          foundBy
+          foundIn
+          link
+        }
+      }
+      orchestrators {
+        type
+        system
+        hash
+        size
+        date
+        name
+        location {
+          runBy
+          foundBy
+          foundIn
+          link
+        }
+      }
+      kubernetes {
+        type
+        system
+        hash
+        subType
+        size
+        date
+        location {
+          runBy
+          foundBy
+          foundIn
+          link
+        }
+      }
+      repository {
+        type
+        system
+        date
+        location {
+          runBy
+          foundBy
+          foundIn
+          link
+        }
+      }
+    }
+    isSbomPresent
+    appOwners {
+      name
+      email
+      roles
+    }
+    pipeline {
+      jobId
+      jobTriggeredAt
+      scanResult
+      issuesCount
+      jobTriggeredBy
+      jobUrl
+    }
+    tags {
+      tagId
+      name
+      displayName
+      createdBy
+      isOxTag
+    }
+  }
+}

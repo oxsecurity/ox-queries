@@ -1,0 +1,521 @@
+query GetSingleIssueInfo($getSingleIssueInput: SingleIssueInput) {
+  getSingleIssueInfo(getSingleIssueInput: $getSingleIssueInput) {
+    dependencyGraph {
+      edges {
+        v
+        w
+      }
+      nodes {
+        name
+        issues {
+          appox
+          critical
+          info
+          high
+          low
+          medium
+        }
+        height
+        id
+        position {
+          x
+          y
+        }
+        vulnerable
+      }
+      allEdges {
+        v
+        w
+      }
+      allNodes {
+        name
+        issues {
+          appox
+          critical
+          info
+          high
+          low
+          medium
+        }
+        height
+        id
+        position {
+          x
+          y
+        }
+        vulnerable
+      }
+    }
+    sbom {
+      id
+      libId
+      license
+      appName
+      dependencyType
+      location
+      appId
+      locationLink
+      appLink
+      pkgName
+      copyWriteInfo
+      copyWriteInfoLink
+      libLink
+      libraryName
+      libraryVersion
+      latestVersion
+      latestVersionDate
+      stars
+      forks
+      openIssues
+      maintainers
+      notPopular
+      licenseIssue
+      notMaintained
+      isDeprecated
+      notImported
+      notUpdated
+      dependencyLevel
+      language
+      downloads
+      contributors
+      packageManager
+      packageManagerLink
+      source
+      sourceLink
+      triggerPackage
+    }
+    id
+    issueId
+    gptInfo {
+      createdAt
+      user
+      gptResponse
+    }
+    
+    
+    isGPTFixAvailable
+    name
+    scanId
+    created
+    scanDate
+    mainTitle
+    secondTitle
+    description
+    severity
+    owners
+    ruleId
+    originalToolSeverity
+    exclusionCategory
+    occurrences
+    comment
+    learnMore
+    exclusionId
+    isMonoRepoChild
+    monoRepoParent
+    isFixAvailable
+    prDeatils {
+      sourceControlType
+      repo
+      prURL
+      prBranchName
+      commitMessage
+      commiter
+      comment
+      date
+      prTitle
+      prBody
+      prStatus
+      prApprover
+      prReviewer
+      prMergeTime
+    }
+    autoFix {
+      fixType
+      fixTitle
+      fixDescription
+      activeFix {
+        fixId
+        fixURL
+      }
+      fixPR {
+        issueBranch
+        commitMessage
+        fixFiles {
+          filePath
+          newFileContent
+        }
+      }
+      isFixApplied
+      fixAppliedBy
+      sourceControlType
+      fixDate
+      fixInput {
+        type
+        name
+        options {
+          name
+          metadata
+        }
+      }
+    }
+    extraInfo {
+      key
+      value
+    }
+    resource {
+      id
+      type
+    }
+    app {
+      id
+      name
+      businessPriority
+      type
+      originBranchName
+      repoId
+      organization
+      repoName
+      applicationFlows {
+        artifacts {
+          type
+          system
+          subType
+          hash
+          size
+          date
+          name
+          linkName
+          location {
+            runBy
+            foundBy
+            foundIn
+            link
+          }
+        }
+        cloudDeployments {
+          type
+          subType
+          name
+          hash
+          hashType
+          location {
+            runBy
+            foundBy
+            foundIn
+            link
+          }
+        }
+        cicdInfo {
+          type
+          system
+          latestDate
+          lastMonthJobCount
+          location {
+            runBy
+            foundBy
+            foundIn
+            link
+          }
+        }
+        orchestrators {
+          type
+          system
+          hash
+          size
+          date
+          name
+          location {
+            runBy
+            foundBy
+            foundIn
+            link
+          }
+        }
+        kubernetes {
+          type
+          system
+          hash
+          subType
+          size
+          date
+          location {
+            runBy
+            foundBy
+            foundIn
+            link
+          }
+        }
+        repository {
+          type
+          system
+          date
+          location {
+            runBy
+            foundBy
+            foundIn
+            link
+          }
+        }
+      }
+    }
+    policy {
+      id
+      name
+      detailedDescription
+    }
+    issueId
+    category {
+      name
+      categoryId
+    }
+    isPRAvailable
+    fixes {
+      settingType
+      tooltip
+      description
+      warning
+      confirmation
+      inputs {
+        type
+        name
+        displayName
+        maxSelect
+        minSelect
+        options {
+          isDisabled
+          name
+          displayName
+          selected
+          metadata
+          info
+        }
+        multiSelect
+      }
+    }
+    aggregations {
+      summary {
+        summary
+        comment
+      }
+      type
+      items {
+        
+        stars
+        forks
+        downloads
+        vulBySeverity
+        nameAndVer
+        sourceRepoName
+        sourceRepoLink
+        sourceCreationDate
+        sourceLastModifyDate
+        destinationRepoName
+        destinationRepoLink
+        destinationCreationDate
+        destinationLastModifyDate
+        destinationRepoVisibility
+        reasons
+        additionalToolData
+        devOperationDate
+        adminOperationDate
+        reviewOperation
+        reviewOperationDate
+        hashAggId
+        url
+        events
+        allEvents
+        pushType
+        sha
+        title
+        link
+        mergedBy
+        fileName
+        fileUri
+        date
+        fileCount
+        diffInDays
+        reviewers
+        commitLink
+        user
+        userLink
+        userAvatar
+        devOperation
+        adminOperation
+        orgRole
+        earliestActivityDate
+        repoPermissions
+        adminLocation
+        email
+        pullRequestsCount
+        diffFromNowToCreatedAtInDays
+        username
+        accessLevel
+        createdAt
+        lastAccess
+        match
+        commitBy
+        reputation
+        resource
+        service
+        region
+        accountName
+        secret
+        image
+        tag
+        dockerVer
+        os
+        imageCreatedAt
+        pkgCount
+        binariesCount
+        snippet
+        size
+        pushedAt
+        source
+        ruleId
+        realMatch
+        filePath
+        lockfile
+        _id
+        accountId
+        snippetLineNumber
+        language
+        daysOpen
+        aggId
+        repo
+        repoCreator
+        lastCodeDate
+        lastAdminOperation
+        exclusionId
+        numberOfReposDomainAppear
+      }
+    }
+    exclusions {
+      label
+      type
+      id
+      isDefault
+    }
+    recommendation
+    violationInfoTitle
+    sourceTools
+    cwe
+    fixLink
+    fixIssue {
+      fixType
+      activeFix {
+        fixId
+        fixURL
+      }
+      fixPR {
+        issueBranch
+        commitMessage
+        fixFiles {
+          filePath
+          newFileContent
+        }
+      }
+    }
+    dependencyChain
+    publicExploitLink
+    cweList {
+      name
+      description
+      url
+    }
+    lowerSeverityReason
+    scaVulnerabilities {
+      cwe {
+        name
+        shortName
+        url
+      }
+      cve
+      dependencyChain
+      cveLink
+      cvsVer
+      exploitInTheWildLink
+      description
+      dateDiscovered
+      minorVerWithFix
+      majorVerWithFix
+      exploitRequirement
+      exploitCode
+      originalSeverity
+    }
+    directSCAVulnerability {
+      cwe {
+        name
+        shortName
+        url
+      }
+      dependencyChain
+      libName
+      libVersion
+      chainDepth
+      cve
+      cveLink
+      cvsVer
+      exploitInTheWildLink
+      description
+      dateDiscovered
+      minorVerWithFix
+      majorVerWithFix
+      exploitRequirement
+      exploitCode
+      originalSeverity
+    }
+    scaTriggerPkg
+    indirectSupported
+    noneDirectSCAVulnerability {
+      cwe {
+        name
+        shortName
+        url
+      }
+      dependencyChain
+      libName
+      libVersion
+      chainDepth
+      cve
+      cveLink
+      cvsVer
+      exploitInTheWildLink
+      description
+      dateDiscovered
+      minorVerWithFix
+      majorVerWithFix
+      exploitRequirement
+      exploitCode
+      originalSeverity
+    }
+    severityChangedReason {
+      changeNumber
+      reason
+      shortName
+      changeCategory
+      extraInfo {
+        key
+        value
+        link
+        snippet {
+          snippetLineNumber
+          language
+          text
+          fileName
+        }
+      }
+    }
+    tickets {
+      key
+      provider
+      ticketId
+      link
+    }
+    oscarData {
+      id
+      name
+      description
+      url
+    }
+  }
+}

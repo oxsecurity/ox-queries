@@ -1,0 +1,41 @@
+query GetIssues($isDemo: Boolean, $getIssuesInput: IssuesInput) {
+  getIssues(isDemo: $isDemo, getIssuesInput: $getIssuesInput) {
+    issues {
+      id
+      issueId
+      mainTitle
+      secondTitle
+      name
+      created
+      scanId
+      owners
+      occurrences
+      comment
+      severity
+      policy {
+        id
+        name
+        detailedDescription
+      }
+      category {
+        name
+        categoryId
+      }
+      category {
+        name
+      }
+      app {
+        id
+        name
+        businessPriority
+        type
+        fakeApp
+      }
+      createdAt
+    }
+    totalIssues
+    totalFilteredIssues
+    totalResolvedIssues
+    offset
+  }
+}

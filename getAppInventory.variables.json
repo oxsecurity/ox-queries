@@ -1,0 +1,10 @@
+{
+  "getDashboardInput": {
+    "owners": [],
+    "filters": [],
+    "dateRange": {
+      "from": 1695248962469,
+      "to": 9999999999999
+    }
+  }
+}

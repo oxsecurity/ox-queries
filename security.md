@@ -1,0 +1,1 @@
+Concerns associated with content returned by OX queries may be negated by usage of query/variable files inside of postman collection (eg deserialization trust conerns) or discussions with OX representatives familiar with the GraphQL API made available.
