@@ -1,0 +1,310 @@
+{
+	"info": {
+		"_postman_id": "dfcc687e-4c3f-4033-9651-9f31249c064e",
+		"name": "OX APIs/ Issues",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9022684",
+		"_collection_link": "https://lunar-space-526923.postman.co/workspace/My-Workspace~bbaecab2-d1fd-424d-8dce-2cb79cff05f7/collection/9022684-dfcc687e-4c3f-4033-9651-9f31249c064e?action=share&source=collection_link&creator=9022684"
+	},
+	"item": [
+		{
+			"name": "GetIssues",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"connection": true,
+					"accept-encoding": true,
+					"accept": true,
+					"user-agent": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{OX_MHGH}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query GetIssues($isDemo: Boolean, $getIssuesInput: IssuesInput) {\n  getIssues(isDemo: $isDemo, getIssuesInput: $getIssuesInput) {\n    issues {\n      id\n      issueId\n      mainTitle\n      secondTitle\n      name\n      created\n      scanId\n      owners\n      occurrences\n      comment\n      severity\n      policy {\n        id\n        name\n        detailedDescription\n      }\n      category {\n        name\n        categoryId\n      }\n      category {\n        name\n      }\n      app {\n        id\n        name\n        businessPriority\n        type\n        fakeApp\n      }\n      createdAt\n    }\n    totalIssues\n    totalFilteredIssues\n    totalResolvedIssues\n    offset\n  }\n}",
+						"variables": "{\"getIssuesInput\": {\"owners\": [],\"offset\": 0,\"limit\": 1000,\"filters\": {\"criticality\": [\"Critical\",\"High\",\"Medium\",\"Low\",\"Info\"]},\"sort\": {\"fields\": [\"Severity\"],\"order\": [\"DESC\"]},\"dateRange\": {\"from\": 1684993734665,\"to\": 1785598534665}},\n\"isDemo\": true}\n"
+					}
+				},
+				"url": {
+					"raw": "https://api.cloud.ox.security/api/apollo-gateway",
+					"protocol": "https",
+					"host": [
+						"api",
+						"cloud",
+						"ox",
+						"security"
+					],
+					"path": [
+						"api",
+						"apollo-gateway"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Inventory- Apps per type",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"connection": true,
+					"accept-encoding": true,
+					"accept": true,
+					"user-agent": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{OX_MHGH}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query FetchInventory($getDashboardInput: FetchDashboardInput) {\n  getInventoryResult(getInventoryInput: $getDashboardInput) {\n    inventory {\n      name\n      label\n      count\n      delta\n      trend\n      tooltip {\n        appId\n        appName\n        businessPriority\n      }\n    }\n    totalApps\n    notRelevantApps\n  }\n}",
+						"variables": "{\n  \"getDashboardInput\": {\n    \"owners\": [],\n    \"filters\": [],\n    \"dateRange\": {\n      \"from\": 1695248962469,\n      \"to\": 9999999999999\n    }\n  }\n}"
+					}
+				},
+				"url": {
+					"raw": "https://api.cloud.ox.security/api/apollo-gateway",
+					"protocol": "https",
+					"host": [
+						"api",
+						"cloud",
+						"ox",
+						"security"
+					],
+					"path": [
+						"api",
+						"apollo-gateway"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Applications",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"connection": true,
+					"accept-encoding": true,
+					"accept": true,
+					"user-agent": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{OX_MHGH}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query GetApplications($getApplicationsInput: GetApplicationsInput) {\n  getApplications(getApplicationsInput: $getApplicationsInput) {\n    applications {\n      appId\n      appName\n      risk\n      type\n      userCount\n      codeChanges\n      fakeApp\n      lastCodeChange\n      securityPosture\n      businessPriority\n      isSbomPresent\n      isMonoRepoChild\n      monoRepoParent\n      overridePriority\n      issuesBySeverity {\n        appox\n        critical\n        high\n        medium\n        low\n        info\n      }\n      categories {\n        categoryName\n        categoryId\n        catId\n        severities {\n          info\n          low\n          medium\n          high\n          critical\n          appox\n        }\n        severityScore\n        score\n        total\n        isNa\n        reason\n      }\n      appOwners {\n        name\n        email\n        roles\n      }\n      pipeline {\n        jobId\n        jobTriggeredAt\n        scanResult\n        issuesCount\n        jobTriggeredBy\n        jobUrl\n      }\n      tags {\n        tagId\n        name\n        displayName\n        tagType\n        createdBy\n        isOxTag\n      }\n    }\n    offset\n    total\n    totalFilteredApps\n    totalIrrelevantApps\n  }\n}",
+						"variables": "{\n  \"getApplicationsInput\": {\n    \"offset\": 0,\n    \"limit\": 100\n  }\n}"
+					}
+				},
+				"url": {
+					"raw": "https://api.cloud.ox.security/api/apollo-gateway",
+					"protocol": "https",
+					"host": [
+						"api",
+						"cloud",
+						"ox",
+						"security"
+					],
+					"path": [
+						"api",
+						"apollo-gateway"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Application Info",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"connection": true,
+					"accept-encoding": true,
+					"accept": true,
+					"user-agent": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{OX_MHGH}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query GetSingleApplicationInfo($getSingleApplicationInput: SingleApplicationInput) {\n  getSingleApplicationInfo(getSingleApplicationInput: $getSingleApplicationInput) {\n    appId\n    issues\n    appName\n    branch\n    branchesCount\n    businessPriority\n    codeChanges\n    fakeApp\n    link\n    commitCount\n    createdAt\n    creator\n    daysSinceLastCodeChange\n    daysSinceRepoCreation\n    deployedProd\n    filesCount\n    forksCount\n    hasDownloads\n    pipelineScans\n    irrelevantReasons\n    isMonoRepoChild\n    monoRepoParent\n    monorepoChildrenCount\n    sbomCount\n    monorepoChildrenAppIds\n    languages {\n      language\n      languagePercentage\n    }\n    lastCodeChange\n    new\n    overrideRelevance\n    overridePriority\n    publicVisibility\n    pullCount\n    pushCount\n    relevant\n    risk\n    scanId\n    scannedAt\n    secInfrastructure {\n      label\n      clientCoverage\n      oxCoverage\n      noCoverage\n      notApplicable\n    }\n    securityPosture\n    size\n    tagsCount\n    type\n    updated\n    userCount\n    version\n    violationCount\n    watchersCount\n    yamlsCount\n    scoreHistory {\n      appId\n      appName\n      score\n      date\n      new\n      updated\n      scanId\n    }\n    applicationFlows {\n      artifacts {\n        type\n        system\n        subType\n        hash\n        size\n        date\n        name\n        linkName\n        location {\n          runBy\n          foundBy\n          foundIn\n          link\n        }\n      }\n      cloudDeployments {\n        type\n        subType\n        name\n        hash\n        hashType\n        location {\n          runBy\n          foundBy\n          foundIn\n          link\n        }\n      }\n      cicdInfo {\n        type\n        system\n        latestDate\n        lastMonthJobCount\n        location {\n          runBy\n          foundBy\n          foundIn\n          link\n        }\n      }\n      orchestrators {\n        type\n        system\n        hash\n        size\n        date\n        name\n        location {\n          runBy\n          foundBy\n          foundIn\n          link\n        }\n      }\n      kubernetes {\n        type\n        system\n        hash\n        subType\n        size\n        date\n        location {\n          runBy\n          foundBy\n          foundIn\n          link\n        }\n      }\n      repository {\n        type\n        system\n        date\n        location {\n          runBy\n          foundBy\n          foundIn\n          link\n        }\n      }\n    }\n    isSbomPresent\n    appOwners {\n      name\n      email\n      roles\n    }\n    pipeline {\n      jobId\n      jobTriggeredAt\n      scanResult\n      issuesCount\n      jobTriggeredBy\n      jobUrl\n    }\n    tags {\n      tagId\n      name\n      displayName\n      createdBy\n      isOxTag\n    }\n  }\n}",
+						"variables": "{\n  \"getSingleApplicationInput\": {\n    \"applicationId\": \"584352228\"\n  }\n}"
+					}
+				},
+				"url": {
+					"raw": "https://api.cloud.ox.security/api/apollo-gateway",
+					"protocol": "https",
+					"host": [
+						"api",
+						"cloud",
+						"ox",
+						"security"
+					],
+					"path": [
+						"api",
+						"apollo-gateway"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sandbox Query",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"connection": true,
+					"accept-encoding": true,
+					"accept": true,
+					"user-agent": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{OX_MHGH}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query GetOrganizationInfo {\n  getOrganization {\n    id\n    name\n    display_name\n    customerTier\n    developersCount\n    trialStartTimestamp\n    trialEndTimestamp\n    daysLeftForTrial\n  }\n}",
+						"variables": "{}"
+					}
+				},
+				"url": {
+					"raw": "https://api.cloud.ox.security/api/apollo-gateway",
+					"protocol": "https",
+					"host": [
+						"api",
+						"cloud",
+						"ox",
+						"security"
+					],
+					"path": [
+						"api",
+						"apollo-gateway"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Single Issue",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"user-agent": true,
+					"accept-encoding": true,
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{OX_MHGH}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query GetSingleIssueInfo($getSingleIssueInput: SingleIssueInput) {\n  getSingleIssueInfo(getSingleIssueInput: $getSingleIssueInput) {\n    dependencyGraph {\n      edges {\n        v\n        w\n      }\n      nodes {\n        name\n        issues {\n          appox\n          critical\n          info\n          high\n          low\n          medium\n        }\n        height\n        id\n        position {\n          x\n          y\n        }\n        vulnerable\n      }\n      allEdges {\n        v\n        w\n      }\n      allNodes {\n        name\n        issues {\n          appox\n          critical\n          info\n          high\n          low\n          medium\n        }\n        height\n        id\n        position {\n          x\n          y\n        }\n        vulnerable\n      }\n    }\n    sbom {\n      id\n      libId\n      license\n      appName\n      dependencyType\n      location\n      appId\n      locationLink\n      appLink\n      pkgName\n      copyWriteInfo\n      copyWriteInfoLink\n      libLink\n      libraryName\n      libraryVersion\n      latestVersion\n      latestVersionDate\n      stars\n      forks\n      openIssues\n      maintainers\n      notPopular\n      licenseIssue\n      notMaintained\n      isDeprecated\n      notImported\n      notUpdated\n      dependencyLevel\n      language\n      downloads\n      contributors\n      packageManager\n      packageManagerLink\n      source\n      sourceLink\n      triggerPackage\n    }\n    id\n    issueId\n    gptInfo {\n      createdAt\n      user\n      gptResponse\n    }\n    \n    \n    isGPTFixAvailable\n    name\n    scanId\n    created\n    scanDate\n    mainTitle\n    secondTitle\n    description\n    severity\n    owners\n    ruleId\n    originalToolSeverity\n    exclusionCategory\n    occurrences\n    comment\n    learnMore\n    exclusionId\n    isMonoRepoChild\n    monoRepoParent\n    isFixAvailable\n    prDeatils {\n      sourceControlType\n      repo\n      prURL\n      prBranchName\n      commitMessage\n      commiter\n      comment\n      date\n      prTitle\n      prBody\n      prStatus\n      prApprover\n      prReviewer\n      prMergeTime\n    }\n    autoFix {\n      fixType\n      fixTitle\n      fixDescription\n      activeFix {\n        fixId\n        fixURL\n      }\n      fixPR {\n        issueBranch\n        commitMessage\n        fixFiles {\n          filePath\n          newFileContent\n        }\n      }\n      isFixApplied\n      fixAppliedBy\n      sourceControlType\n      fixDate\n      fixInput {\n        type\n        name\n        options {\n          name\n          metadata\n        }\n      }\n    }\n    extraInfo {\n      key\n      value\n    }\n    resource {\n      id\n      type\n    }\n    app {\n      id\n      name\n      businessPriority\n      type\n      originBranchName\n      repoId\n      organization\n      repoName\n      applicationFlows {\n        artifacts {\n          type\n          system\n          subType\n          hash\n          size\n          date\n          name\n          linkName\n          location {\n            runBy\n            foundBy\n            foundIn\n            link\n          }\n        }\n        cloudDeployments {\n          type\n          subType\n          name\n          hash\n          hashType\n          location {\n            runBy\n            foundBy\n            foundIn\n            link\n          }\n        }\n        cicdInfo {\n          type\n          system\n          latestDate\n          lastMonthJobCount\n          location {\n            runBy\n            foundBy\n            foundIn\n            link\n          }\n        }\n        orchestrators {\n          type\n          system\n          hash\n          size\n          date\n          name\n          location {\n            runBy\n            foundBy\n            foundIn\n            link\n          }\n        }\n        kubernetes {\n          type\n          system\n          hash\n          subType\n          size\n          date\n          location {\n            runBy\n            foundBy\n            foundIn\n            link\n          }\n        }\n        repository {\n          type\n          system\n          date\n          location {\n            runBy\n            foundBy\n            foundIn\n            link\n          }\n        }\n      }\n    }\n    policy {\n      id\n      name\n      detailedDescription\n    }\n    issueId\n    category {\n      name\n      categoryId\n    }\n    isPRAvailable\n    fixes {\n      settingType\n      tooltip\n      description\n      warning\n      confirmation\n      inputs {\n        type\n        name\n        displayName\n        maxSelect\n        minSelect\n        options {\n          isDisabled\n          name\n          displayName\n          selected\n          metadata\n          info\n        }\n        multiSelect\n      }\n    }\n    aggregations {\n      summary {\n        summary\n        comment\n      }\n      type\n      items {\n        \n        stars\n        forks\n        downloads\n        vulBySeverity\n        nameAndVer\n        sourceRepoName\n        sourceRepoLink\n        sourceCreationDate\n        sourceLastModifyDate\n        destinationRepoName\n        destinationRepoLink\n        destinationCreationDate\n        destinationLastModifyDate\n        destinationRepoVisibility\n        reasons\n        additionalToolData\n        devOperationDate\n        adminOperationDate\n        reviewOperation\n        reviewOperationDate\n        hashAggId\n        url\n        events\n        allEvents\n        pushType\n        sha\n        title\n        link\n        mergedBy\n        fileName\n        fileUri\n        date\n        fileCount\n        diffInDays\n        reviewers\n        commitLink\n        user\n        userLink\n        userAvatar\n        devOperation\n        adminOperation\n        orgRole\n        earliestActivityDate\n        repoPermissions\n        adminLocation\n        email\n        pullRequestsCount\n        diffFromNowToCreatedAtInDays\n        username\n        accessLevel\n        createdAt\n        lastAccess\n        match\n        commitBy\n        reputation\n        resource\n        service\n        region\n        accountName\n        secret\n        image\n        tag\n        dockerVer\n        os\n        imageCreatedAt\n        pkgCount\n        binariesCount\n        snippet\n        size\n        pushedAt\n        source\n        ruleId\n        realMatch\n        filePath\n        lockfile\n        _id\n        accountId\n        snippetLineNumber\n        language\n        daysOpen\n        aggId\n        repo\n        repoCreator\n        lastCodeDate\n        lastAdminOperation\n        exclusionId\n        numberOfReposDomainAppear\n      }\n    }\n    exclusions {\n      label\n      type\n      id\n      isDefault\n    }\n    recommendation\n    violationInfoTitle\n    sourceTools\n    cwe\n    fixLink\n    fixIssue {\n      fixType\n      activeFix {\n        fixId\n        fixURL\n      }\n      fixPR {\n        issueBranch\n        commitMessage\n        fixFiles {\n          filePath\n          newFileContent\n        }\n      }\n    }\n    dependencyChain\n    publicExploitLink\n    cweList {\n      name\n      description\n      url\n    }\n    lowerSeverityReason\n    scaVulnerabilities {\n      cwe {\n        name\n        shortName\n        url\n      }\n      cve\n      dependencyChain\n      cveLink\n      cvsVer\n      exploitInTheWildLink\n      description\n      dateDiscovered\n      minorVerWithFix\n      majorVerWithFix\n      exploitRequirement\n      exploitCode\n      originalSeverity\n    }\n    directSCAVulnerability {\n      cwe {\n        name\n        shortName\n        url\n      }\n      dependencyChain\n      libName\n      libVersion\n      chainDepth\n      cve\n      cveLink\n      cvsVer\n      exploitInTheWildLink\n      description\n      dateDiscovered\n      minorVerWithFix\n      majorVerWithFix\n      exploitRequirement\n      exploitCode\n      originalSeverity\n    }\n    scaTriggerPkg\n    indirectSupported\n    noneDirectSCAVulnerability {\n      cwe {\n        name\n        shortName\n        url\n      }\n      dependencyChain\n      libName\n      libVersion\n      chainDepth\n      cve\n      cveLink\n      cvsVer\n      exploitInTheWildLink\n      description\n      dateDiscovered\n      minorVerWithFix\n      majorVerWithFix\n      exploitRequirement\n      exploitCode\n      originalSeverity\n    }\n    severityChangedReason {\n      changeNumber\n      reason\n      shortName\n      changeCategory\n      extraInfo {\n        key\n        value\n        link\n        snippet {\n          snippetLineNumber\n          language\n          text\n          fileName\n        }\n      }\n    }\n    tickets {\n      key\n      provider\n      ticketId\n      link\n    }\n    oscarData {\n      id\n      name\n      description\n      url\n    }\n  }\n}",
+						"variables": "{\n  \"getSingleIssueInput\": {\n    \"issueId\": \"584352228-oxPolicy_securityScan_120-org.springframework:spring-web_5.3.19\"\n  }\n}"
+					}
+				},
+				"url": {
+					"raw": "https://api.cloud.ox.security/api/apollo-gateway",
+					"protocol": "https",
+					"host": [
+						"api",
+						"cloud",
+						"ox",
+						"security"
+					],
+					"path": [
+						"api",
+						"apollo-gateway"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Single Issue Copy",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"user-agent": true,
+					"accept-encoding": true,
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{OX_MHGH}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query GetIssuesFilters($getIssuesInput: IssuesInput, $isDemo: Boolean) {\n  getIssuesFilters(getIssuesInput: $getIssuesInput, isDemo: $isDemo) {\n    totalIssues\n    apps {\n      label\n      count\n      percent\n      filterId\n    }\n    criticality {\n      label\n      count\n      percent\n      filterId\n    }\n    fixedIssues {\n      label\n      count\n      percent\n      filterId\n    }\n    categories {\n      label\n      count\n      percent\n      filterId\n    }\n    policies {\n      label\n      count\n      percent\n      filterId\n    }\n    issueOwners {\n      label\n      count\n      percent\n      filterId\n    }\n    issueNames {\n      label\n      count\n      percent\n      filterId\n    }\n    sourceTools {\n      label\n      count\n      percent\n      filterId\n    }\n    cwe {\n      label\n      count\n      percent\n      filterId\n    }\n    severityChange {\n      label\n      count\n      percent\n      filterId\n    }\n    severityChangeReasons {\n      label\n      count\n      percent\n      filterId\n      changeNumber\n    }\n    issueStatus {\n      label\n      count\n      percent\n      filterId\n    }\n    issueActions {\n      label\n      count\n      percent\n      filterId\n    }\n    originalSeverity {\n      id\n      filterId\n      label\n      count\n      percent\n      changeNumber\n    }\n    uniqueLibs {\n      id\n      filterId\n      label\n      count\n      percent\n      changeNumber\n    }\n    filePaths {\n      id\n      filterId\n      label\n      count\n      percent\n      changeNumber\n    }\n    languages {\n      id\n      filterId\n      label\n      count\n      percent\n      changeNumber\n    }\n    cve {\n      id\n      filterId\n      label\n      count\n      percent\n      changeNumber\n    }\n    oscar {\n      id\n      filterId\n      label\n      count\n      percent\n      changeNumber\n    }\n    issuesWithout {\n      id\n      filterId\n      label\n      count\n      percent\n      changeNumber\n    }\n    \n   \n    }\n}",
+						"variables": "{\n  \"getIssuesInput\": {\n    \"owners\": [],\n    \"offset\": 0,\n    \"limit\": 100,\n    \"filters\": {\n      \"apps\": [\n        \"OX-Security-Demo/Bank-Website\"\n      ]\n    },\n    \"dateRange\": {\n      \"from\": 1698677570797,\n      \"to\": 1699285970797\n    },\n    \"search\": []\n  },\n  \"isDemo\": false\n}"
+					}
+				},
+				"url": {
+					"raw": "https://api.cloud.ox.security/api/apollo-gateway",
+					"protocol": "https",
+					"host": [
+						"api",
+						"cloud",
+						"ox",
+						"security"
+					],
+					"path": [
+						"api",
+						"apollo-gateway"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
