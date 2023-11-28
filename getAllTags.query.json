@@ -1,0 +1,13 @@
+query GetAllTags {
+    getAllTags {
+      tags {
+        tagId
+        name
+        displayName
+        tagType
+        createdBy
+        isOxTag
+      }
+    }
+  }
+  
