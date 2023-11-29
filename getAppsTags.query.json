@@ -1,0 +1,15 @@
+query GetAppsTags($input: GetAppsTagsInput!) {
+    getAppsTags(input: $input) {
+      appsTags {
+        appId
+        tag {
+          tagId
+          name
+          displayName
+          tagType
+          createdBy
+          isOxTag
+        }
+      }
+    }
+  }
