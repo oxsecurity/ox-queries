@@ -1,0 +1,19 @@
+query GetSbomLibraries($getSbomLibrariesInput: GetApplicationsSbom) {
+    getSbomLibraries(getApplicationsSbom: $getSbomLibrariesInput) {
+      sbomLibs {
+        id
+        appType
+        libId
+        libraryName
+        libraryVersion
+        license
+        appId
+        appName
+        dependencyType      
+      }
+      offset
+      total
+      totalFilteredSbomLibs
+    }
+  }
+  

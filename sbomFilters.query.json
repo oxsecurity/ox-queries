@@ -1,0 +1,125 @@
+query GetSbomLibrariesFilters($getApplicationsSbom: GetApplicationsSbom) {
+    getSbomLibrariesFilters(getApplicationsSbom: $getApplicationsSbom) {
+      total
+      libraryNames {
+        id
+        filterId
+        label
+        count
+        percent
+      }
+      libraryVersions {
+        id
+        filterId
+        label
+        count
+        percent
+      }
+      apps {
+        id
+        filterId
+        label
+        count
+        percent
+      }
+      source {
+        id
+        filterId
+        label
+        count
+        percent
+      }
+      dependencyTypes {
+        id
+        filterId
+        label
+        count
+        percent
+      }
+      licenses {
+        id
+        filterId
+        label
+        count
+        percent
+      }
+      copyrights {
+        id
+        filterId
+        label
+        count
+        percent
+      }
+      packageNames {
+        id
+        filterId
+        label
+        count
+        percent
+      }
+      severities {
+        id
+        filterId
+        label
+        count
+        percent
+      }
+      packageInfos {
+        id
+        filterId
+        label
+        count
+        percent
+      }
+      packageManagers {
+        id
+        filterId
+        label
+        count
+        percent
+      }
+      cve {
+        id
+        filterId
+        label
+        count
+        percent
+      }
+      languages {
+        id
+        filterId
+        label
+        count
+        percent
+      }
+      os {
+        id
+        filterId
+        label
+        count
+        percent
+      }
+      baseImage {
+        id
+        filterId
+        label
+        count
+        percent
+      }
+      registryName {
+        id
+        filterId
+        label
+        count
+        percent
+      }
+      image {
+        id
+        filterId
+        label
+        count
+        percent
+      }
+    }
+  }
+  

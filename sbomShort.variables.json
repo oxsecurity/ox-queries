@@ -1,0 +1,11 @@
+{
+    "getSbomLibrariesInput": {
+      "offset": 0,
+      "filters": {},
+      "search": "",
+      "limit": 20000,
+      "sbomSearch": [],
+      "owners": []
+    }
+  }
+  

@@ -1,0 +1,43 @@
+query GetSbomLibraries($getSbomLibrariesInput: GetApplicationsSbom) {
+    getSbomLibraries(getApplicationsSbom: $getSbomLibrariesInput) {
+      sbomLibs {
+        id
+        appType
+        libId
+        libraryName
+        libraryVersion
+        license
+        appId
+        appName
+        dependencyType
+        source
+        location
+        appId
+        locationLink
+        appLink
+        pkgName
+        copyWriteInfo
+        copyWriteInfoLink
+        libLink
+        notPopular
+        licenseIssue
+        notMaintained
+        isDeprecated
+        dependencyLevel
+        notUpdated
+        notImported
+        vulnerabilityCounts {
+          appox
+          critical
+          high
+          medium
+          low
+          info
+        }      
+      }
+      offset
+      total
+      totalFilteredSbomLibs
+    }
+  }
+  
