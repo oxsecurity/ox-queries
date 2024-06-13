@@ -1,0 +1,11 @@
+{
+    "getApplicationsSbom": {
+      "search": "",
+      "limit": 100,
+      "offset": 0,
+      "filters": {},
+      "sbomSearch": [],
+      "owners": []
+    }
+  }
+  
