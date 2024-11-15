@@ -1,0 +1,5 @@
+mutation SetPolicySettings($policySettingsInput: PolicySettingsInput) {
+   setPolicySettings(policySettingsInput: $policySettingsInput) {
+      hasModifiedSettings
+   }
+}

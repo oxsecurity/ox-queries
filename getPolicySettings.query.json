@@ -1,0 +1,21 @@
+query GetPolicySettings($getPolicySettingsInput: GetPolicySettingsInput) {
+  getPolicySettings(getPolicySettingsInput: $getPolicySettingsInput) {
+    categoryId
+    settings {
+      policyId
+      policyName
+      options {
+        new {
+          optionId
+          optionName
+          appsCount
+        }
+        old {
+          optionId
+          optionName
+          appsCount
+        }
+      }
+    }
+  }
+}
