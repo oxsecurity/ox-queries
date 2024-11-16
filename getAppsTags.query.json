@@ -8,7 +8,7 @@ query GetAppsTags($input: GetAppsTagsInput!) {
           displayName
           tagType
           createdBy
-          isOxTag
+          tagType
         }
       }
     }
