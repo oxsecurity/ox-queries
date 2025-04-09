@@ -1,0 +1,12 @@
+{
+  "getIssuesInput": {
+    "dateRange": {
+      "from": 1735372799999,
+      "to": 1735977599999
+    },
+    "inventoryFilters": [],
+    "owners": [],
+    "tagIds": []
+  }
+}
+
