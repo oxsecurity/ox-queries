@@ -1,0 +1,18 @@
+query GetApplications($getApplicationsInput: GetApplicationsInput) {
+    getApplications(getApplicationsInput: $getApplicationsInput) {
+      applications {
+        appId
+        appName
+        link
+        tags {
+          tagId
+          name
+          displayName
+        }
+		       }
+    offset
+    total
+    totalFilteredApps
+    totalIrrelevantApps
+  }
+}

@@ -1,16 +1,16 @@
 query GetIssuePrioritization($getIssuesInput: IssuesInput) {
-  getIssuePrioritization(getIssuesInput: $getIssuesInput) {      
-    originalSeverity {      
-      label      
-      count    
-    }    
+  getIssuePrioritization(getIssuesInput: $getIssuesInput) {
+    originalSeverity {
+      label
+      count
+    }
     oxPrioritization {
-      label      
-      count    
-    }    
+      label
+      count
+    }
     oxAggregation {
       label
-      count    
-    } 
+      count
+    }
   }
 }

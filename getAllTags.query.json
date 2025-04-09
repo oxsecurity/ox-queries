@@ -6,7 +6,6 @@ query GetAllTags {
         displayName
         tagType
         createdBy
-        tagType
       }
     }
   }

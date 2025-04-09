@@ -1,0 +1,30 @@
+query GetMembersScreen {
+  getMembers {
+    user_id
+    picture
+    name
+    email
+    scopes
+    roles {
+      id
+      name
+    }
+  }
+  getInvitations {
+    id
+    inviteeEmail
+    created_at
+    expires_at
+  }
+  getGlobalRoles {
+    id
+    name
+    description
+  }
+  getPendingRequestAccess {
+    pendingRequests {
+      email
+      requestedAt
+    }
+  }
+}

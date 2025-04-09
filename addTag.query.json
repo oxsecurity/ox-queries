@@ -1,0 +1,11 @@
+mutation AddTag($input: AddTagInput!) {
+  addTags(input: $input) {
+    tags {
+      tagType
+      tagId
+      name
+      displayName
+      createdBy
+    }
+  }
+}

@@ -1,0 +1,16 @@
+query GetConnectorsByFamily {
+  getConnectorsByFamily {
+    family
+    familyDisplayName
+    connectors {
+      connector {
+        id
+        name
+        displayName
+        description
+		isConfigured
+        credentialsTypes
+        }
+        }
+      }
+    }

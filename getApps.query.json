@@ -60,7 +60,7 @@ query GetApplications($getApplicationsInput: GetApplicationsInput) {
         displayName
         tagType
         createdBy
-        tagType
+        isOxTag
       }
     }
     offset

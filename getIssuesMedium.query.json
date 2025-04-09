@@ -8,21 +8,24 @@ query GetIssues($isDemo: Boolean, $getIssuesInput: IssuesInput) {
       name
       created
       scanId
-      owners
+      createdAt
       occurrences
-      comment
       severity
+      originalToolSeverity
+      aggregations {
+      summary {
+        summary
+        comment
+      }
+      type
+      items {
+        source
+        commitBy
+      }}
       policy {
         id
         name
         detailedDescription
-      }
-      category {
-        name
-        categoryId
-      }
-      category {
-        name
       }
       app {
         id
@@ -31,7 +34,15 @@ query GetIssues($isDemo: Boolean, $getIssuesInput: IssuesInput) {
         type
         fakeApp
       }
-      createdAt
+      category {
+        name
+        categoryId
+      }
+      severityChangedReason {
+        changeNumber
+        shortName
+        changeCategory
+      }
     }
     totalIssues
     totalFilteredIssues
