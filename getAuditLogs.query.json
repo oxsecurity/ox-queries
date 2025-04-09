@@ -1,0 +1,16 @@
+query GetLogs($input: GetLogsInput, $includeCount: Boolean = true) {
+  getLogsCount(input: $input) @include(if: $includeCount) {
+    count
+  }
+  getLogs(input: $input) {
+    id
+    name
+    date
+    logType
+    logName
+    user
+    userId
+    userEmail
+    domain
+  }
+}

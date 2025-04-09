@@ -1,0 +1,1 @@
+{"getIssuesInput":{"owners":[],"offset":0,"limit":10000,"filters":{"criticality":["Appoxalypse","Critical","High","Medium","Low","Info"]},"conditionalFilters":null},"sort":{"fields":["Severity"],"order":["DESC"]},"dateRange":{"from":1,"to":1743396774149},"isDemo":true}

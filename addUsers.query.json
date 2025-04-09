@@ -1,0 +1,8 @@
+mutation CreateMultipleInvitations($invitationsInfo: [InvitationInput]!) {
+  createMultipleInvitations(invitationsInfo: $invitationsInfo) {
+    id
+    inviteeEmail
+    created_at
+    expires_at
+  }
+}

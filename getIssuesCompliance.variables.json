@@ -1,0 +1,1 @@
+{"getIssuesInput":{"owners":[],"offset":0,"limit":1000,"filters":{"criticality":["Appoxalypse","Critical","High"]},"conditionalFilters":[{"condition":"OR","fieldName":"apps","values":["EFDEV / grs-event-service"]}]},"sort":{"fields":["Severity"],"order":["DESC"]},"dateRange":{"from":1,"to":1717592173749},"isDemo":true}

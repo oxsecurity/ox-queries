@@ -1,0 +1,21 @@
+query GetPipelineSummary($getPipelineSummaryInput: GetPipelineSummaryInput) {
+  getPipelineSummary(getPipelineSummaryInput: $getPipelineSummaryInput) {
+    pipelineSummaries {
+      apps {
+        appId
+        appName
+        appType
+      }
+      result
+      jobTriggeredAt
+      jobCompletedAt
+      jobDuration
+      jobTriggeredReason
+      totalIssues
+      totalBlockingIssues
+      }
+    offset
+    total
+    totalFiltered
+  }
+}

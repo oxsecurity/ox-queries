@@ -1,12 +1,1 @@
-{
-  "input": {
-    "addedTagsIds": [
-      "ea5b86c0-908d-4c04-92d6-32b267f6bdb5"
-    ],
-    "removedTagsIds": [],
-    "appIds": [
-      "*Bitbucket-Settings (oxsecurity)",
-      "{a6d51cf9-4029-4163-89fd-97987351d81d}"
-    ]
-  }
-}
+{"input":{"addedTagsIds":["9edaf805-a0f4-488b-9d9a-d6d7f7e5c384"],"removedTagsIds":[],"appIds":["60833"]}}

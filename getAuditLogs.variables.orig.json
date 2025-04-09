@@ -1,0 +1,15 @@
+{
+  "includeCount": true,
+  "input": {
+    "dateRange": {
+      "from": "2023-01-09T05:00:00.000Z",
+      "to": "2025-01-08T22:14:21.299Z"
+    },
+    "skip": 0,
+    "limit": 500,
+    "orderBy": {
+      "direction": "DESC",
+      "field": "date"
+    }
+  }
+}

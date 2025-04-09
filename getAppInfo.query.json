@@ -167,7 +167,7 @@ query GetSingleApplicationInfo($getSingleApplicationInput: SingleApplicationInpu
       name
       displayName
       createdBy
-      tagType
+      isOxTag
     }
   }
 }

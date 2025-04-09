@@ -1,0 +1,29 @@
+query GetSingleIssueInfo($getSingleIssueInput: SingleIssueInput) {
+  getSingleIssueInfo(getSingleIssueInput: $getSingleIssueInput) {
+    id
+    issueId
+    sbom {
+      id
+      libId
+      license
+      appName
+      dependencyType
+      pkgName
+      libraryName
+      libraryVersion
+      packageManager
+    }
+    scaVulnerabilities {      
+      cve
+      cveLink
+      cvsVer
+      libName
+      libVersion
+      exploitInTheWildLink
+      dateDiscovered
+      minorVerWithFix
+      majorVerWithFix
+      originalSeverity
+    }
+  }
+}

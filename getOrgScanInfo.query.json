@@ -1,0 +1,22 @@
+query GetOrgScanInfo($getOrgScanInfoInput: FetchDashboardInput) {
+  getOrgScanInfo(getOrgScanInfoInput: $getOrgScanInfoInput) {
+    scanDate
+    scanId
+    appsNotRelevant
+    appsRelevant
+    appsTotal
+    policyCount
+    totalIssues
+    systems
+    policies
+    scannedApps
+    severitiesAlerts {
+      severity
+      alerts
+    }
+    scanStartDate
+    scanFinishDate
+    scanType
+    scanInfoStats
+  }
+}
