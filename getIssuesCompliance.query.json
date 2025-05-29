@@ -1,5 +1,5 @@
-query GetIssues($isDemo: Boolean, $getIssuesInput: IssuesInput) {
-  getIssues(isDemo: $isDemo, getIssuesInput: $getIssuesInput) {
+query GetIssues($getIssuesInput: IssuesInput) {
+  getIssues(getIssuesInput: $getIssuesInput) {
     issues {
       id
       issueId
