@@ -21,10 +21,4 @@ query GetMembersScreen {
     name
     description
   }
-  getPendingRequestAccess {
-    pendingRequests {
-      email
-      requestedAt
-    }
-  }
 }

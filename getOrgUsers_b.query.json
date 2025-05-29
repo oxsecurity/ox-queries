@@ -1,0 +1,22 @@
+query GetOrgUsersByOrgId($orgId: String!) {
+  getOrgUsersByOrgId(orgId: $orgId) {
+    developersCount
+    developersCountAPI
+    developersCountCommits
+    display_name
+     users {
+      committerEmail
+      committerAuthor
+      latestSha
+      link
+      latestCommitDate
+      gitType
+      filtered
+    }
+    usersFromApi {
+      id
+      username
+      name
+    }
+  }
+}
